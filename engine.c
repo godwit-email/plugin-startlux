@@ -9,6 +9,9 @@
 #include "third_party/llama/llama.h"
 
 #ifdef _WIN32
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0602 // AddDllDirectory and the LOAD_LIBRARY_SEARCH_* flags (Windows 8+)
+#endif
 #include <windows.h>
 #define LIBNAME "llama.dll"
 #else

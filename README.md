@@ -30,6 +30,8 @@ Methods (ABI v1, see `sdk/godwit_plugin.h` and Godwit's plugin model API design)
 ## Building
 
 ```bash
+python3 scripts/package.py                  # dist/<platform>/plugin.<ext>
+python3 scripts/engine.py tmp/engine        # the pinned llama.cpp build, as Godwit stores it
 go build -buildmode=c-shared -o tmp/plugin.dylib .
 python3 scripts/smoke.py tmp/plugin.dylib --godwit GODWIT_CHECKOUT --engine ENGINE_DIR --model MODEL_DIR
 ```

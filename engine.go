@@ -110,3 +110,6 @@ func (m *model) letterLogits(tokens, letters []int32) ([]float32, error) {
 	}
 	return out, nil
 }
+
+// systemInfo is the engine's build and backend summary.
+func systemInfo() string { return C.GoString(C.sl_system_info()) }

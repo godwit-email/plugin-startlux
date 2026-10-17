@@ -1,0 +1,80 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-15
+            platform: darwin-arm64
+          - runner: macos-15-intel
+            platform: darwin-amd64
+          - runner: ubuntu-24.04
+            platform: linux-amd64
+          - runner: ubuntu-24.04-arm
+            platform: linux-arm64
+          - runner: windows-2025
+            platform: windows-amd64
+            msystem: MINGW64
+            cc: mingw-w64-x86_64-gcc
+          - runner: windows-11-arm
+            platform: windows-arm64
+            msystem: CLANGARM64
+            cc: mingw-w64-clang-aarch64-clang
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    env:
+      CGO_ENABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - uses: msys2/setup-msys2@v2
+        id: msys2
+        if: runner.os == 'Windows'
+        with:
+          msystem: ${{ matrix.msystem }}
+          update: true
+          install: ${{ matrix.cc }}
+      - name: Windows C compiler
+        if: runner.os == 'Windows'
+        shell: pwsh
+        env:
+          MSYS2_LOCATION: ${{ steps.msys2.outputs.msys2-location }}
+          MSYSTEM_DIR: ${{ matrix.msystem == 'MINGW64' && 'mingw64' || 'clangarm64' }}
+        run: '"$env:MSYS2_LOCATION\$env:MSYSTEM_DIR\bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8'
+      - name: Formatting
+        run: test -z "$(gofmt -l .)"
+      - run: go vet ./...
+      - run: go test -race ./...
+        if: runner.os != 'Windows'
+      - run: go test ./...
+        if: runner.os == 'Windows'
+      # The pinned engine, laid out as Godwit stores it, loads with its backends (no model: 2 GB).
+      - name: Load the pinned llama.cpp build
+        run: |
+          python scripts/engine.py tmp/engine --platform ${{ matrix.platform }}
+          STARTLUX_ENGINE="$PWD/tmp/engine" go test -run EngineOpens -v .
+      - run: python scripts/package.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: startlux-${{ matrix.platform }}
+          path: dist/${{ matrix.platform }}/
+          if-no-files-found: error
