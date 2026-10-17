@@ -31,6 +31,7 @@ jobs:
             platform: windows-arm64
             msystem: CLANGARM64
             cc: mingw-w64-clang-aarch64-clang
+            cgo_cc: clang # the runner's own gcc on PATH is x86
     runs-on: ${{ matrix.runner }}
     timeout-minutes: 20
     defaults:
@@ -59,7 +60,9 @@ jobs:
         env:
           MSYS2_LOCATION: ${{ steps.msys2.outputs.msys2-location }}
           MSYSTEM_DIR: ${{ matrix.msystem == 'MINGW64' && 'mingw64' || 'clangarm64' }}
-        run: '"$env:MSYS2_LOCATION\$env:MSYSTEM_DIR\bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8'
+        run: |
+          "$env:MSYS2_LOCATION\$env:MSYSTEM_DIR\bin" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+          if ("${{ matrix.cgo_cc }}") { "CC=${{ matrix.cgo_cc }}" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8 }
       - name: Formatting
         run: test -z "$(gofmt -l .)"
       - run: go vet ./...
