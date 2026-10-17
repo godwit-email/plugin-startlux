@@ -1,0 +1,11 @@
+{
+  "name": "startlux",
+  "version": "0.1.0",
+  "description": {
+    "default": "Local judge models: label mail and answer yes/no questions on this computer, with no data sent anywhere.",
+    "zh-CN": "本地判断模型：在本机给邮件打标签、回答是非题，数据不离开这台电脑。"
+  },
+  "native": { "abi": 1, "idle": 120 },
+  "capabilities": ["models"],
+  "config": []
+}
