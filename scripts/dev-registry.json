@@ -1,0 +1,17 @@
+{
+  "plugins": [
+    {
+      "name": "startlux",
+      "title": "StartLux",
+      "summary": {"default": "Local judge models", "zh-CN": "本地判断模型"},
+      "dir": "../dist/darwin-arm64",
+      "assets": [
+        {"name": "engine", "variants": [{"id": "llama", "dir": "../tmp/engine"}]},
+        {"name": "model", "variants": [
+          {"id": "4b-q4", "minMemoryGB": {"default": 8}, "dir": "../testdata/local/4b-q4"},
+          {"id": "2b-q8", "minMemoryGB": {"default": 6, "windows-*": 8}, "dir": "../testdata/local/2b-q8"}
+        ]}
+      ]
+    }
+  ]
+}
