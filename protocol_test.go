@@ -44,7 +44,7 @@ func TestConfigureTakesNothing(t *testing.T) {
 
 func TestModelsList(t *testing.T) {
 	ms := call(t, "models.list", `{}`)["result"].(map[string]any)["models"].([]any)
-	if len(ms) != 2 {
+	if len(ms) != len(catalog) {
 		t.Fatalf("%v", ms)
 	}
 	for _, m := range ms {
@@ -121,5 +121,17 @@ func TestScoreAnswer(t *testing.T) {
 	c := toAnswer(question{Name: "c", Type: "choice"}, row{typ: "choice", options: []option{{"a", ""}, {"b", ""}}}, []float64{0.5, 0.5})
 	if c.Choice != "a" {
 		t.Fatalf("a tie goes to the first option: %+v", c)
+	}
+}
+
+// Only Apple silicon offers 4B; elsewhere 2B alone, marked slow.
+func TestCatalogFor(t *testing.T) {
+	if c := catalogFor("darwin-arm64"); len(c) != 2 || c[1].Description != nil {
+		t.Fatalf("%+v", c)
+	}
+	for _, p := range []string{"darwin-amd64", "linux-amd64", "linux-arm64", "windows-amd64", "windows-arm64"} {
+		if c := catalogFor(p); len(c) != 1 || c[0].ID != "decision-2b-q8" || c[0].Description["default"] == "" {
+			t.Fatalf("%s: %+v", p, c)
+		}
 	}
 }

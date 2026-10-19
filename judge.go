@@ -11,20 +11,34 @@ import (
 	"math"
 	"os"
 	"path/filepath"
+	"runtime"
 	"sync"
 )
 
 type catalogModel struct {
-	ID        string            `json:"id"`
-	Name      string            `json:"name"`
-	Transport string            `json:"transport"`
-	Operation string            `json:"operation"`
-	Assets    map[string]string `json:"assets"`
+	ID          string            `json:"id"`
+	Name        string            `json:"name"`
+	Transport   string            `json:"transport"`
+	Operation   string            `json:"operation"`
+	Assets      map[string]string `json:"assets"`
+	Description map[string]string `json:"description,omitempty"`
 }
 
-var catalog = []catalogModel{
-	{ID: "decision-4b-q4", Name: "StartLux Decision 4B Q4", Transport: "plugin", Operation: "judge", Assets: map[string]string{"model": "4b-q4"}},
-	{ID: "decision-2b-q8", Name: "StartLux Decision 2B Q8", Transport: "plugin", Operation: "judge", Assets: map[string]string{"model": "2b-q8"}},
+// catalog is the models on this platform. Only Apple silicon has a GPU back
+// end; elsewhere the CPU reads a 2K-token mail in tens of seconds a question
+// (docs/parity.md), so only 2B is offered there, and it says it is slow.
+var catalog = catalogFor(runtime.GOOS + "-" + runtime.GOARCH)
+
+func catalogFor(platform string) []catalogModel {
+	m2b := catalogModel{ID: "decision-2b-q8", Name: "StartLux Decision 2B Q8", Transport: "plugin", Operation: "judge", Assets: map[string]string{"model": "2b-q8"}}
+	if platform != "darwin-arm64" {
+		m2b.Description = map[string]string{"default": "Slow on this computer; best for labeling new mail only", "zh-CN": "在这台电脑上较慢，建议只给新邮件打标签"}
+		return []catalogModel{m2b}
+	}
+	return []catalogModel{
+		{ID: "decision-4b-q4", Name: "StartLux Decision 4B Q4", Transport: "plugin", Operation: "judge", Assets: map[string]string{"model": "4b-q4"}},
+		m2b,
+	}
 }
 
 var errBadConfig = errors.New("decision_config.json is not a StartLux-Decision read-out config")
