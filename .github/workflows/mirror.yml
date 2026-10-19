@@ -1,0 +1,52 @@
+# Mirrors a release's engine and models to dl.godwit.email/plugins/startlux/ and
+# prints its registry assets. Manual only: without "upload" it downloads, checks
+# and prints, writing nothing to the bucket. Needs the R2_* secrets to upload.
+name: Mirror assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag, e.g. v0.1.0
+        required: true
+      upload:
+        description: Upload to the bucket (otherwise a dry run)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  mirror:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ inputs.tag }}
+      # The script from this branch: a tag made before it existed can still be mirrored.
+      - uses: actions/checkout@v4
+        with:
+          path: current
+          sparse-checkout: scripts/mirror.py
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Mirror
+        env:
+          AWS_ACCESS_KEY_ID: ${{ inputs.upload && secrets.R2_ACCESS_KEY_ID || '' }}
+          AWS_SECRET_ACCESS_KEY: ${{ inputs.upload && secrets.R2_SECRET_ACCESS_KEY || '' }}
+          AWS_DEFAULT_REGION: auto
+          R2: https://9c578ed9cad837fb4a2564db7b36b483.r2.cloudflarestorage.com
+        run: |
+          cp current/scripts/mirror.py scripts/mirror.py
+          python scripts/mirror.py "$RUNNER_TEMP/mirror" ${{ inputs.upload && '--upload' || '' }}
+      - name: Assets
+        run: |
+          { echo '```json'; cat "$RUNNER_TEMP/mirror/assets.json"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assets-${{ inputs.tag }}
+          path: ${{ runner.temp }}/mirror/assets.json
