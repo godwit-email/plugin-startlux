@@ -104,8 +104,9 @@ jobs:
           mkdir out
           for d in dist/startlux-*; do
             platform=${d#dist/startlux-}
-            lib=$(ls "$d"/plugin.dylib "$d"/plugin.so "$d"/plugin.dll 2>/dev/null)
-            cp "$lib" "out/startlux-$platform.${lib##*.}"
+            for ext in dylib so dll; do
+              if [ -f "$d/plugin.$ext" ]; then cp "$d/plugin.$ext" "out/startlux-$platform.$ext"; fi
+            done
           done
           test "$(ls out | wc -l)" -eq 6
           cp plugin.json dist/startlux-linux-amd64/LICENSE dist/startlux-linux-amd64/LICENSE.llama.cpp out/
