@@ -3,6 +3,7 @@ name: Build
 on:
   push:
     branches: [main]
+    tags: ['v*']
   pull_request:
   workflow_dispatch:
 
@@ -81,3 +82,33 @@ jobs:
           name: startlux-${{ matrix.platform }}
           path: dist/${{ matrix.platform }}/
           if-no-files-found: error
+
+  # A v* tag publishes the six bare libraries, named by platform, as the registry expects.
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: The tag is plugin.json's version
+        run: test "v$(jq -r .version plugin.json)" = "$GITHUB_REF_NAME"
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+      - name: Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir out
+          for d in dist/startlux-*; do
+            platform=${d#dist/startlux-}
+            lib=$(ls "$d"/plugin.dylib "$d"/plugin.so "$d"/plugin.dll 2>/dev/null)
+            cp "$lib" "out/startlux-$platform.${lib##*.}"
+          done
+          test "$(ls out | wc -l)" -eq 6
+          cp plugin.json dist/startlux-linux-amd64/LICENSE dist/startlux-linux-amd64/LICENSE.llama.cpp out/
+          (cd out && sha256sum * > SHA256SUMS)
+          ls -l out
+          gh release create "$GITHUB_REF_NAME" out/* --title "$GITHUB_REF_NAME" --notes "StartLux local judge models for Godwit. Bare plugin libraries per platform; the engine and models are registry assets."
