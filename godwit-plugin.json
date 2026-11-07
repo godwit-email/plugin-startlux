@@ -1,0 +1,627 @@
+{
+  "name": "startlux",
+  "releases": [
+    {
+      "version": "0.1.0",
+      "minGodwit": "1.7.0",
+      "manifest": {
+        "name": "startlux",
+        "version": "0.1.0",
+        "description": {
+          "default": "Local judge models: label mail and answer yes/no questions on this computer, with no data sent anywhere.",
+          "zh-CN": "本地判断模型：在本机给邮件打标签、回答是非题，数据不离开这台电脑。"
+        },
+        "native": {
+          "abi": 1,
+          "idle": 120
+        },
+        "capabilities": [
+          "models"
+        ],
+        "config": []
+      },
+      "artifacts": {
+        "darwin-arm64": {
+          "url": "https://github.com/godwit-email/plugin-startlux/releases/download/v0.1.0/startlux-darwin-arm64.dylib",
+          "sha256": "67302e7d893c1f751a4b1490e8f19be297e2fbd7e9a9f37d5f0c6e2d8afa2e94",
+          "size": 2787186
+        },
+        "darwin-amd64": {
+          "url": "https://github.com/godwit-email/plugin-startlux/releases/download/v0.1.0/startlux-darwin-amd64.dylib",
+          "sha256": "7632f437f7d85095b689d7f1fc10c5bd4f9c75e0250bdf802aa986315ff75d09",
+          "size": 2937768
+        },
+        "linux-amd64": {
+          "url": "https://github.com/godwit-email/plugin-startlux/releases/download/v0.1.0/startlux-linux-amd64.so",
+          "sha256": "46a40c0fe94483a0201fcc5c47d896c8890939bec1c300eee242900af8c5f83c",
+          "size": 3221280
+        },
+        "linux-arm64": {
+          "url": "https://github.com/godwit-email/plugin-startlux/releases/download/v0.1.0/startlux-linux-arm64.so",
+          "sha256": "5d20d2c0738609ba14c1807f82d0ed7d08c1c6c48d0c9fcb51eacfec7d21e992",
+          "size": 3073720
+        },
+        "windows-amd64": {
+          "url": "https://github.com/godwit-email/plugin-startlux/releases/download/v0.1.0/startlux-windows-amd64.dll",
+          "sha256": "2c1d3b8b0556f6a7643ecd5489a447f073e0a29321c8e3aa95e37121f21f077e",
+          "size": 3156992
+        },
+        "windows-arm64": {
+          "url": "https://github.com/godwit-email/plugin-startlux/releases/download/v0.1.0/startlux-windows-arm64.dll",
+          "sha256": "b29de1175b5934d48600937eadb2c20ee05934fd0e389db918ae72bcf347333c",
+          "size": 2895872
+        }
+      },
+      "assets": [
+        {
+          "name": "engine",
+          "platforms": [
+            "darwin-arm64"
+          ],
+          "variants": [
+            {
+              "id": "b11707",
+              "files": [
+                {
+                  "name": "libggml-base.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-arm64/libggml-base.0.dylib",
+                  "sha256": "21cf2cb3bc0f3052b982fae1974d75c935a8e0719d4a3145b779a9a2bc5e0a36",
+                  "size": 751240
+                },
+                {
+                  "name": "libggml-blas.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-arm64/libggml-blas.0.dylib",
+                  "sha256": "12aefdc8dd4873d69554dc85a0dd09fffef9828e1fc9ecf6b48913ef2106b33a",
+                  "size": 58776
+                },
+                {
+                  "name": "libggml-cpu.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-arm64/libggml-cpu.0.dylib",
+                  "sha256": "f29b0322166bc9ea2a1f2482f9cd034959013228831f5bfd06aa770b75dd4d12",
+                  "size": 957408
+                },
+                {
+                  "name": "libggml-metal.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-arm64/libggml-metal.0.dylib",
+                  "sha256": "448d7eafb7906c4bbd445cac28fad15ae9311b4315461283742a2fb1af2a5653",
+                  "size": 5587704
+                },
+                {
+                  "name": "libggml-rpc.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-arm64/libggml-rpc.0.dylib",
+                  "sha256": "547ac08b705a96e82ddb9fcfc2529472f97f5da1957984b3a7652cd5875d452d",
+                  "size": 242800
+                },
+                {
+                  "name": "libggml.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-arm64/libggml.0.dylib",
+                  "sha256": "a97bc40525aea78834fdf28197b5b21f149b6d5ac2d3b615b95b86f775a69477",
+                  "size": 60016
+                },
+                {
+                  "name": "libllama.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-arm64/libllama.0.dylib",
+                  "sha256": "a227d9c9c4fbd2486c7cafd4f3b0fd09c7662527473b11cbed1acceca9713bdf",
+                  "size": 3529184
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "engine",
+          "platforms": [
+            "darwin-amd64"
+          ],
+          "variants": [
+            {
+              "id": "b11707",
+              "files": [
+                {
+                  "name": "libggml-base.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-amd64/libggml-base.0.dylib",
+                  "sha256": "18f34d7690ceb99908a24d287be683c16bb4ab2c6cdf585d7517aff42cc5449c",
+                  "size": 735264
+                },
+                {
+                  "name": "libggml-blas.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-amd64/libggml-blas.0.dylib",
+                  "sha256": "921ecedc49456589898ea38c56a15e317201c3733975ca00441c89b0008339da",
+                  "size": 33688
+                },
+                {
+                  "name": "libggml-cpu.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-amd64/libggml-cpu.0.dylib",
+                  "sha256": "bc66126d61c0ad81aa137b4387ad866fb6a080d5b247218558173229f4357103",
+                  "size": 1551792
+                },
+                {
+                  "name": "libggml-rpc.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-amd64/libggml-rpc.0.dylib",
+                  "sha256": "28add6aca12e233e5ee374bcf5d46bf185c465f304035a716693231bd1ed1e7c",
+                  "size": 220112
+                },
+                {
+                  "name": "libggml.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-amd64/libggml.0.dylib",
+                  "sha256": "34616f7086aeae55ff96abf48c01d696334066e0f2fcb7df4b3794ec942f0092",
+                  "size": 43216
+                },
+                {
+                  "name": "libllama.0.dylib",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/darwin-amd64/libllama.0.dylib",
+                  "sha256": "04c70f96ae2443652d21521c6bb9dd868340769810892938e107750881672623",
+                  "size": 3826760
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "engine",
+          "platforms": [
+            "linux-amd64"
+          ],
+          "variants": [
+            {
+              "id": "b11707",
+              "files": [
+                {
+                  "name": "libggml-base.so.0",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-base.so.0",
+                  "sha256": "9039ae1d318ecb3551f65a17cbf60b5b9d3517d856f087574f52eef2189642a8",
+                  "size": 897792
+                },
+                {
+                  "name": "libggml-cpu-alderlake.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-alderlake.so",
+                  "sha256": "84f02fee4e4e683859b6daf60fcb5bfc62814c068b1dd143a5981421df841545",
+                  "size": 1412200
+                },
+                {
+                  "name": "libggml-cpu-cannonlake.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-cannonlake.so",
+                  "sha256": "392463cdf9867b7fbb08cbf36587621cf071e97d316c7cd51b7b20f9fd120fdc",
+                  "size": 1561576
+                },
+                {
+                  "name": "libggml-cpu-cascadelake.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-cascadelake.so",
+                  "sha256": "47b94135ee53c347bf90461ea7f9c3a055fa19b9462ff220c90f4cfdfdf79a5c",
+                  "size": 1577664
+                },
+                {
+                  "name": "libggml-cpu-cooperlake.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-cooperlake.so",
+                  "sha256": "b8dd831324fcc7e872ed66f840ead7f3cf7c571904db9b61574fb19ce00a935e",
+                  "size": 1573640
+                },
+                {
+                  "name": "libggml-cpu-haswell.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-haswell.so",
+                  "sha256": "705fca217be212f1e3d69ffb446f3b224966e7c95123c20e789a06d3938a9aa0",
+                  "size": 1416296
+                },
+                {
+                  "name": "libggml-cpu-icelake.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-icelake.so",
+                  "sha256": "eb79f0f5193557c52480cac8c85deb0f0e6793dd1cbd05793752071e5be10205",
+                  "size": 1577664
+                },
+                {
+                  "name": "libggml-cpu-ivybridge.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-ivybridge.so",
+                  "sha256": "d2f79bcea05ed9fcf1b9e25bfaa9725655265cb7d7e0df79ffc9e996d1298820",
+                  "size": 1351944
+                },
+                {
+                  "name": "libggml-cpu-piledriver.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-piledriver.so",
+                  "sha256": "c8fec8f0f12d6a1a222c35d265618c582eacc3fd933a76dbd65c587114ed65f0",
+                  "size": 1347848
+                },
+                {
+                  "name": "libggml-cpu-sandybridge.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-sandybridge.so",
+                  "sha256": "03a91516104c443a739804eef17c2d02bc6fe428b5399813c7e97e2282d29007",
+                  "size": 1350944
+                },
+                {
+                  "name": "libggml-cpu-sapphirerapids.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-sapphirerapids.so",
+                  "sha256": "8a5d42ed076b212839c656d1e20731fb17b57b9f7ada0197680c735d70f15de2",
+                  "size": 1839968
+                },
+                {
+                  "name": "libggml-cpu-skylakex.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-skylakex.so",
+                  "sha256": "a7e3e78518913862cb6dba154d2f64c3cd231110569edd94ecce8dd4c1f28e57",
+                  "size": 1561576
+                },
+                {
+                  "name": "libggml-cpu-sse42.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-sse42.so",
+                  "sha256": "81d37cdf3002c8f8f9d44e90fff3d058c4952782aaec1d97bcb375c4db10c659",
+                  "size": 954536
+                },
+                {
+                  "name": "libggml-cpu-x64.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-x64.so",
+                  "sha256": "2d1e8194f441ed4263bb28834cf44801a5e5e0a2592732fab5a2adc76b83290f",
+                  "size": 950536
+                },
+                {
+                  "name": "libggml-cpu-zen4.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-cpu-zen4.so",
+                  "sha256": "ccb8fff995e04e532dc535eba4d9a84cccd5acd7612326db14710d302f4a8e2f",
+                  "size": 1573640
+                },
+                {
+                  "name": "libggml-rpc.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml-rpc.so",
+                  "sha256": "e28139e2d982fb057b88d243e5b2e9d72c52f8b98ae910b1cf751240ef1f9803",
+                  "size": 319776
+                },
+                {
+                  "name": "libggml.so.0",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libggml.so.0",
+                  "sha256": "8643a58bb37af6fb153e2ea98b48efa227855725ee51c05f4ca76b9867956463",
+                  "size": 51040
+                },
+                {
+                  "name": "libllama.so.0",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-amd64/libllama.so.0",
+                  "sha256": "d233a0a90b81f05199efbc6837906eb5b022deaba2c5627827b657ca11f8c703",
+                  "size": 5137328
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "engine",
+          "platforms": [
+            "linux-arm64"
+          ],
+          "variants": [
+            {
+              "id": "b11707",
+              "files": [
+                {
+                  "name": "libggml-base.so.0",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-base.so.0",
+                  "sha256": "21df87c4c3669912a02860e77d586c0f563e809d6a8991634c21fe48fa22e6be",
+                  "size": 802072
+                },
+                {
+                  "name": "libggml-cpu-armv8.0_1.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-cpu-armv8.0_1.so",
+                  "sha256": "801f370ba5d872cfa6aaa5a2cce696153cc51b94d31cfcef53f258c2c0fc87ad",
+                  "size": 1002088
+                },
+                {
+                  "name": "libggml-cpu-armv8.2_1.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-cpu-armv8.2_1.so",
+                  "sha256": "547f1fe937e31c192a47e16488a318978646b9b05009bed3f72db47bf5a713a0",
+                  "size": 1068992
+                },
+                {
+                  "name": "libggml-cpu-armv8.2_2.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-cpu-armv8.2_2.so",
+                  "sha256": "4ba86d67010d29da42b61fd21bac405652d641b28ca0470f41d7361dfb6d9f90",
+                  "size": 1068992
+                },
+                {
+                  "name": "libggml-cpu-armv8.2_3.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-cpu-armv8.2_3.so",
+                  "sha256": "63ecf98e196a06e58e976256f5c839144054a48e5f5f2689b9b86949f15c2017",
+                  "size": 1003936
+                },
+                {
+                  "name": "libggml-cpu-armv8.6_1.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-cpu-armv8.6_1.so",
+                  "sha256": "8cd090f0ea7c6f8176facf48e183f8402aa4c40a04764aa828b5879a8a182628",
+                  "size": 1069720
+                },
+                {
+                  "name": "libggml-cpu-armv8.6_2.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-cpu-armv8.6_2.so",
+                  "sha256": "eea821102b3e571eb3ef41a835e2cf8e7f986fac7f694908e441d5c1803ce332",
+                  "size": 1069720
+                },
+                {
+                  "name": "libggml-cpu-armv9.2_1.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-cpu-armv9.2_1.so",
+                  "sha256": "c5bb9e856d207bc55d3a4ebeaac19d4d6d8e150f18059800d4e80834c551e888",
+                  "size": 1069816
+                },
+                {
+                  "name": "libggml-cpu-armv9.2_2.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-cpu-armv9.2_2.so",
+                  "sha256": "826288cba28f27c9a32b600c9fb93452ac0f2caad1ea56617ac8005eec75bd41",
+                  "size": 1069816
+                },
+                {
+                  "name": "libggml-rpc.so",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml-rpc.so",
+                  "sha256": "1f38aba8b9f512daefd3cb746d9b6183ce70fa92df013dafa160970b14fe1011",
+                  "size": 337272
+                },
+                {
+                  "name": "libggml.so.0",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libggml.so.0",
+                  "sha256": "6be1305cdda55f0001e87fae600f1148b2f0b9c8b3f98f60c33b4fdfe3cfaf64",
+                  "size": 77528
+                },
+                {
+                  "name": "libllama.so.0",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/linux-arm64/libllama.so.0",
+                  "sha256": "c76eadf7cda01e0aa9149d7930e5a750cd66af09c15ed8323708073e317e2f61",
+                  "size": 4872856
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "engine",
+          "platforms": [
+            "windows-amd64"
+          ],
+          "variants": [
+            {
+              "id": "b11707",
+              "files": [
+                {
+                  "name": "ggml-base.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-base.dll",
+                  "sha256": "30c5f6fe4103ce3c682a7fe0ccefbc2a12bf26b4dc8ff5f2d20af31d9bac2994",
+                  "size": 803840
+                },
+                {
+                  "name": "ggml-cpu-alderlake.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-alderlake.dll",
+                  "sha256": "e24bb4951d6c16767650c7f15947160e78cfc27edf0670b01107826eb5acd763",
+                  "size": 1415168
+                },
+                {
+                  "name": "ggml-cpu-cannonlake.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-cannonlake.dll",
+                  "sha256": "e0747b1c80b52ac92a5fabac5375085e1a79265de0c590e5dd439dc64c15b88d",
+                  "size": 1610752
+                },
+                {
+                  "name": "ggml-cpu-cascadelake.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-cascadelake.dll",
+                  "sha256": "1c34826b6c6768e7c023bca05a21a870a97388e757bfffe92a215a01c4cc6be5",
+                  "size": 1583616
+                },
+                {
+                  "name": "ggml-cpu-cooperlake.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-cooperlake.dll",
+                  "sha256": "3deccb9b1eafd97a4217a5aa362062a4799dc8cd1497c6cccb009197c024a209",
+                  "size": 1593344
+                },
+                {
+                  "name": "ggml-cpu-haswell.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-haswell.dll",
+                  "sha256": "385caacacf3c623e90dfca0451359bf25ea0bcca1aef3bd97ffba8f78e4ded09",
+                  "size": 1420288
+                },
+                {
+                  "name": "ggml-cpu-icelake.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-icelake.dll",
+                  "sha256": "98efac53be03d8ce605b1f89d4491d8727764d3219e4fd4065746202aa7e517f",
+                  "size": 1590272
+                },
+                {
+                  "name": "ggml-cpu-ivybridge.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-ivybridge.dll",
+                  "sha256": "7a6ad15ec149a8fca2ff5ccd52cd27be05cefce7d24fb79104d3382109288d3f",
+                  "size": 1301504
+                },
+                {
+                  "name": "ggml-cpu-piledriver.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-piledriver.dll",
+                  "sha256": "7e0bdc06a462413865cc12994dda0d6c51b1833c59fe74036ddc568eeb5efa7d",
+                  "size": 1294336
+                },
+                {
+                  "name": "ggml-cpu-sandybridge.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-sandybridge.dll",
+                  "sha256": "c459e5f4119a04b582c4544114afceb12e0fc852f9dd4db3f179945d0a4b087c",
+                  "size": 1291264
+                },
+                {
+                  "name": "ggml-cpu-sapphirerapids.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-sapphirerapids.dll",
+                  "sha256": "d8765a8f71d3b2514c88b76e8ecfdff5cdfd9ddd204565b5cc5e46bcfa6f46ba",
+                  "size": 1869824
+                },
+                {
+                  "name": "ggml-cpu-skylakex.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-skylakex.dll",
+                  "sha256": "82541c2bb0186f90640a37a75a7e86c489b833a5505301188c1519b2181218ff",
+                  "size": 1603584
+                },
+                {
+                  "name": "ggml-cpu-sse42.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-sse42.dll",
+                  "sha256": "f7dbe0a3ee76e99ed801721972b20a501e9c371867cf87c3cfdae5ced0b879c8",
+                  "size": 916992
+                },
+                {
+                  "name": "ggml-cpu-x64.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-x64.dll",
+                  "sha256": "6c7c6d1759bd61e0e53d5d0e83c820c5d2c4f4050422343b38efb0fe87ef34a4",
+                  "size": 909824
+                },
+                {
+                  "name": "ggml-cpu-zen4.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-cpu-zen4.dll",
+                  "sha256": "23b1477e5e6a0caf79c6e8a64d2c3412ab5af1f0750a97566f39570cd20ecba5",
+                  "size": 1600000
+                },
+                {
+                  "name": "ggml-rpc.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml-rpc.dll",
+                  "sha256": "36a2d2a254c15215b8c291d3a6f258df301e0ed70895765374cc8bb34fed607e",
+                  "size": 231424
+                },
+                {
+                  "name": "ggml.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/ggml.dll",
+                  "sha256": "75a703ef4da9ec760522a39ac93efc6dc3636fffe2febea41c325e9e0a4e9732",
+                  "size": 78848
+                },
+                {
+                  "name": "libomp.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/libomp.dll",
+                  "sha256": "a12116ba72d1d6820407cf30be23da04ce79d6bb8a71a5ee71759c5a1faa6f1c",
+                  "size": 768000
+                },
+                {
+                  "name": "llama.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-amd64/llama.dll",
+                  "sha256": "724f16d5f2651a2a4bfe7856643d26f42afd38fef290523a40a84918a00abc03",
+                  "size": 3575808
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "engine",
+          "platforms": [
+            "windows-arm64"
+          ],
+          "variants": [
+            {
+              "id": "b11707",
+              "files": [
+                {
+                  "name": "ggml-base.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-arm64/ggml-base.dll",
+                  "sha256": "28b2a5651cd50ad725e9ad950ade87089d332a329d19c49f7d50a764372f535f",
+                  "size": 667136
+                },
+                {
+                  "name": "ggml-cpu.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-arm64/ggml-cpu.dll",
+                  "sha256": "87997d740a8241fe83833fc1a1b5375f2205b7131e1d9e26c6e5312f062b8261",
+                  "size": 835072
+                },
+                {
+                  "name": "ggml-rpc.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-arm64/ggml-rpc.dll",
+                  "sha256": "35af1a8cb0207a359aef002525934df2d8d93e7ca8255c0ba0b003e223b03615",
+                  "size": 215040
+                },
+                {
+                  "name": "ggml.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-arm64/ggml.dll",
+                  "sha256": "0cbc94ee3b50c070ea36c77938c2d6f23e3df3506af3ee38b03facff377cdeb4",
+                  "size": 69120
+                },
+                {
+                  "name": "libomp.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-arm64/libomp.dll",
+                  "sha256": "26caae17f29aaf2238f664375b663cd306d596bc9e36e780fa88356c51fe876a",
+                  "size": 764928
+                },
+                {
+                  "name": "llama.dll",
+                  "url": "https://dl.godwit.email/plugins/startlux/engine/b11707/windows-arm64/llama.dll",
+                  "sha256": "88a7a08e457c034b0fd6b7da8b18c02b2e7755ec103bd5be7ba8466ca168b0c7",
+                  "size": 3129344
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "model",
+          "platforms": [
+            "darwin-arm64"
+          ],
+          "variants": [
+            {
+              "id": "4b-q4",
+              "minMemoryGB": {
+                "default": 8
+              },
+              "files": [
+                {
+                  "name": "model.gguf",
+                  "url": "https://dl.godwit.email/plugins/startlux/models/v1.1/4b-q4/model.gguf",
+                  "sha256": "5fcfe9771db996a868f78215c08955c21cf5e8188609e17e9c653183d946e84d",
+                  "size": 2708804064
+                },
+                {
+                  "name": "decision_config.json",
+                  "url": "https://dl.godwit.email/plugins/startlux/models/v1.1/4b-q4/decision_config.json",
+                  "sha256": "9ca014791b5c71996c212c7aed6275405c4d9b682a6b6eba325a3ab17bcccc08",
+                  "size": 521
+                }
+              ]
+            },
+            {
+              "id": "2b-q8",
+              "minMemoryGB": {
+                "default": 6,
+                "windows-*": 12
+              },
+              "files": [
+                {
+                  "name": "model.gguf",
+                  "url": "https://dl.godwit.email/plugins/startlux/models/v1.1/2b-q8/model.gguf",
+                  "sha256": "170cf86482a3340c7bd2000f921aa482820a992c14587f496f43fc57009f9529",
+                  "size": 2012012128
+                },
+                {
+                  "name": "decision_config.json",
+                  "url": "https://dl.godwit.email/plugins/startlux/models/v1.1/2b-q8/decision_config.json",
+                  "sha256": "3bd3c0c3854b18be967c7a660d38b8340aa2b4c14648d8ce0260cd32f6e89c1a",
+                  "size": 521
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "model",
+          "platforms": [
+            "darwin-amd64",
+            "linux-amd64",
+            "linux-arm64",
+            "windows-amd64",
+            "windows-arm64"
+          ],
+          "variants": [
+            {
+              "id": "2b-q8",
+              "minMemoryGB": {
+                "default": 6,
+                "windows-*": 12
+              },
+              "files": [
+                {
+                  "name": "model.gguf",
+                  "url": "https://dl.godwit.email/plugins/startlux/models/v1.1/2b-q8/model.gguf",
+                  "sha256": "170cf86482a3340c7bd2000f921aa482820a992c14587f496f43fc57009f9529",
+                  "size": 2012012128
+                },
+                {
+                  "name": "decision_config.json",
+                  "url": "https://dl.godwit.email/plugins/startlux/models/v1.1/2b-q8/decision_config.json",
+                  "sha256": "3bd3c0c3854b18be967c7a660d38b8340aa2b4c14648d8ce0260cd32f6e89c1a",
+                  "size": 521
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
